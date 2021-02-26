@@ -6,6 +6,7 @@
   /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
+  margin-right: 50px;
 }
 
 .App-link {
@@ -18,4 +19,12 @@ label {
 
 button {
   margin-top: 10px;
+}
+
+.main {
+  display: flex;
+}
+
+.listBtn {
+  margin-left: 20px;
 }
