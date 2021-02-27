@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react'
+import TodoItem from './TodoItem'
 
 class App extends React.Component {
   constructor() {
@@ -20,8 +21,10 @@ class App extends React.Component {
     input: ''})
   }
 
-  handleCompleted = (e) => {
-    this.setState({todos: this.state.todos.filter( todo => todo != e.target.name)})
+  handleCompleted = (index) => {
+    let list = this.state.todos
+    list.splice(index, 1)
+    this.setState({todos: [...list]})
   }
 
   render() {
@@ -35,7 +38,7 @@ class App extends React.Component {
             <div className='App'>
               <label>Todo List</label>
               <ol>
-                {this.state.todos.map((todo, index) => <li key={index}>{todo}<button name={todo} className="listBtn" onClick={this.handleCompleted}>Completed</button></li>)}
+                {this.state.todos.map((todo, index) => <TodoItem key={index} index={index} title={todo} remove={this.handleCompleted} />)}
               </ol>
             </div>
           </div>
